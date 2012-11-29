@@ -12,8 +12,8 @@
  
   <!-- CSS -->
   <link rel="stylesheet" href="/css/syntax.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet/less" href="/less/site.less">
-  <script src="/js/less.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ site.css['css/main-@hash.css'] }}" />
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
   <style type="text/css">
       body {
         padding-top: 60px;
@@ -52,7 +52,7 @@
     </div>
   </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid" id="wrap">
   <div class="row-fluid">
     <div class="span3">
       <div class="well sidebar-nav">
@@ -64,7 +64,7 @@
           <li><a href="http://www.github.com/Kiwixi">Github de kiwixi</a></li>
           <li class="nav-header">Derniers posts</li>
           {% for post in site.posts limit:5%}
-            <li><a href="{{ post.url }}">{{ post.date | date_to_string }} &raquo; {{ post.title }}</a></li>
+            <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.date | date_to_string }} &raquo; {{ post.title | truncatewords 5}}</a></li>
           {% endfor %}
           <!-- <li class="nav-header">Catégories</li>
           <li>
@@ -92,21 +92,25 @@
     </div>
 
    </div><!--/row-->
-
+   <div id="push"></div>
+</div><!--/.fluid-container-->
       <hr>
 
       <footer>
-        <p>
+       <div class="container">
+        <p class="muted credit">
           Nicolas Maubourguet
-        </p>
+    
         <a href="http://github.com/minineuron/">github.com/minineuron</a>
         <a href="http://twitter.com/nicolasKiwixi/">twitter.com/nicolasKiwixi</a>
         <a href="http://www.kiwixi.com/">kiwixi</a>
         <a href="http://blog.kiwixi.com/">blog</a>
         <a href="/touslesposts/">Plan du site</a>
+ </p>
+      </div>
       </footer>
 
-    </div><!--/.fluid-container-->
+
 
 
   
@@ -125,6 +129,6 @@
 // pageTracker._trackPageview();
 </script>
 <!-- Google Analytics end -->
-
+<script type="text/javascript" src="{{ site.js['js/main-@hash.js'] }}"></script>
 </body>
 </html>
