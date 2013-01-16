@@ -2,7 +2,6 @@ markdown: rdiscount
 pygments: true
 permalink: pretty
 lsi: true
-permalink: pretty
 future:      true
 
 exclude:     ['_assets', '_src', 'README.md', 'Gemfile', 'Gemfile.lock', 'package.json', 'Makefile']
